@@ -1,6 +1,6 @@
 import { runPuzzles } from '../../utils.js';
 
-function puzzleA(input) {
+function part1(input) {
   const timestamp = parseInt(input[0]);
   const ids = {};
   const results = input[1]
@@ -19,7 +19,7 @@ function puzzleA(input) {
   return min * ids[min];
 }
 
-function puzzleB(input) {
+function part2(input) {
   const ids = input[1].split(',').map(x => parseInt(x));
   let step = ids[0];
   let timestamp = ids[0];
@@ -36,7 +36,7 @@ function puzzleB(input) {
 }
 
 // eslint-disable-next-line no-unused-vars
-function puzzleB2(input) {
+function part22(input) {
   const ids = input[1].split(',').map(x => parseInt(x));
   // let i = ids[0];
   let i = Math.ceil(100000000000000 / ids[0]) * ids[0];
@@ -58,4 +58,4 @@ function puzzleB2(input) {
   }
 }
 
-runPuzzles(puzzleA, puzzleB, 2020, 13);
+runPuzzles(part1, part2, 2020, 13);

@@ -1,6 +1,6 @@
 import { runPuzzles } from '../../utils.js';
 
-function puzzleA(input) {
+function part1(input) {
   const directions = ['E', 'S', 'W', 'N'];
   let x = 0,
     y = 0,
@@ -47,7 +47,7 @@ function mod(n, m) {
   return ((n % m) + m) % m;
 }
 
-function puzzleB(input) {
+function part2(input) {
   let x = 0,
     y = 0,
     wx = 10,
@@ -91,4 +91,4 @@ function puzzleB(input) {
   return Math.abs(x) + Math.abs(y);
 }
 
-runPuzzles(puzzleA, puzzleB, 2020, 12);
+runPuzzles(part1, part2, 2020, 12);

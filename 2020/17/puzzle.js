@@ -1,6 +1,6 @@
 import { runPuzzles } from '../../utils.js';
 
-function puzzleA(input) {
+function part1(input) {
   const coefficients = [-1, 0, 1];
   let cube = new Set();
   for (let i = 0; i < input.length; i++) {
@@ -54,7 +54,7 @@ function puzzleA(input) {
   return [...cube.values()].filter(value => value).length;
 }
 
-function puzzleB(input) {
+function part2(input) {
   const coefficients = [-1, 0, 1];
   let cube = new Set();
   for (let i = 0; i < input.length; i++) {
@@ -119,4 +119,4 @@ function puzzleB(input) {
   return [...cube.values()].filter(value => value).length;
 }
 
-runPuzzles(puzzleA, puzzleB, 2020, 17);
+runPuzzles(part1, part2, 2020, 17);

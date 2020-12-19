@@ -1,6 +1,8 @@
 import { runPuzzles } from '../../utils.js';
 
-function puzzleA(input) {
+const coefficients = [-1, 0, 1];
+
+function part1(input) {
   let oldArray = input;
   let newArray = input;
   do {
@@ -10,29 +12,15 @@ function puzzleA(input) {
       newArray[i] = [];
       for (let j = 0; j < oldArray[0].length; j++) {
         let nearSeatsCount = 0;
-        if (oldArray[i - 1] && oldArray[i - 1][j - 1] === '#') {
-          nearSeatsCount++;
-        }
-        if (oldArray[i - 1] && oldArray[i - 1][j] === '#') {
-          nearSeatsCount++;
-        }
-        if (oldArray[i - 1] && oldArray[i - 1][j + 1] === '#') {
-          nearSeatsCount++;
-        }
-        if (oldArray[i][j - 1] === '#') {
-          nearSeatsCount++;
-        }
-        if (oldArray[i][j + 1] === '#') {
-          nearSeatsCount++;
-        }
-        if (oldArray[i + 1] && oldArray[i + 1][j - 1] === '#') {
-          nearSeatsCount++;
-        }
-        if (oldArray[i + 1] && oldArray[i + 1][j] === '#') {
-          nearSeatsCount++;
-        }
-        if (oldArray[i + 1] && oldArray[i + 1][j + 1] === '#') {
-          nearSeatsCount++;
+        for (const x of coefficients) {
+          for (const y of coefficients) {
+            if (x === 0 && y === 0) {
+              continue;
+            }
+            if (oldArray[i + x] && oldArray[i + x][j + y] === '#') {
+              nearSeatsCount++;
+            }
+          }
         }
 
         if (nearSeatsCount === 0 && ['L', '#'].includes(oldArray[i][j])) {
@@ -74,7 +62,7 @@ function count(array, symbol) {
   return sum;
 }
 
-function puzzleB(input) {
+function part2(input) {
   let oldArray = input;
   let newArray = input;
   do {
@@ -84,29 +72,15 @@ function puzzleB(input) {
       newArray[i] = [];
       for (let j = 0; j < oldArray[0].length; j++) {
         let nearSeatsCount = 0;
-        if (isOccupied(oldArray, i, j, -1, -1)) {
-          nearSeatsCount++;
-        }
-        if (isOccupied(oldArray, i, j, -1, 0)) {
-          nearSeatsCount++;
-        }
-        if (isOccupied(oldArray, i, j, -1, 1)) {
-          nearSeatsCount++;
-        }
-        if (isOccupied(oldArray, i, j, 0, -1)) {
-          nearSeatsCount++;
-        }
-        if (isOccupied(oldArray, i, j, 0, 1)) {
-          nearSeatsCount++;
-        }
-        if (isOccupied(oldArray, i, j, 1, -1)) {
-          nearSeatsCount++;
-        }
-        if (isOccupied(oldArray, i, j, 1, 0)) {
-          nearSeatsCount++;
-        }
-        if (isOccupied(oldArray, i, j, 1, 1)) {
-          nearSeatsCount++;
+        for (const x of coefficients) {
+          for (const y of coefficients) {
+            if (x === 0 && y === 0) {
+              continue;
+            }
+            if (isOccupied(oldArray, i, j, x, y)) {
+              nearSeatsCount++;
+            }
+          }
         }
 
         if (nearSeatsCount === 0 && ['L', '#'].includes(oldArray[i][j])) {
@@ -140,4 +114,4 @@ function isOccupied(array, y, x, dy, dx) {
   return false;
 }
 
-runPuzzles(puzzleA, puzzleB, 2020, 11);
+runPuzzles(part1, part2, 2020, 11);

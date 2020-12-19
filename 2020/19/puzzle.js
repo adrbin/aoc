@@ -1,6 +1,6 @@
 import { runPuzzles } from '../../utils.js';
 
-function puzzleA(input) {
+function part1(input) {
   let { i, rules } = createRules(input);
   let count = 0;
   while (i < input.length) {
@@ -82,7 +82,7 @@ function checkRule(text, rule, rules) {
   };
 }
 
-function puzzleB(input) {
+function part2(input) {
   let { i, rules } = createRules(input);
   let count = 0;
   while (i < input.length) {
@@ -115,4 +115,4 @@ function puzzleB(input) {
   return count;
 }
 
-runPuzzles(puzzleA, puzzleB, 2020, 19);
+runPuzzles(part1, part2, 2020, 19);

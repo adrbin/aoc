@@ -1,6 +1,6 @@
 import { runPuzzles } from '../../utils.js';
 
-function puzzleA(input) {
+function part1(input) {
   return findNumber(input, 2020);
 }
 
@@ -29,8 +29,8 @@ function findNumber(input, targetTurn) {
   return previousNumber;
 }
 
-function puzzleB(input) {
+function part2(input) {
   return findNumber(input, 30000000);
 }
 
-runPuzzles(puzzleA, puzzleB, 2020, 15, ',');
+runPuzzles(part1, part2, 2020, 15, ',');

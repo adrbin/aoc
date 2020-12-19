@@ -7,7 +7,7 @@ const ops = {
   '/': (a, b) => a / b,
 };
 
-function puzzleA(input) {
+function part1(input) {
   const results = input
     .map(line =>
       line
@@ -47,7 +47,7 @@ function puzzleA(input) {
   return results.reduce((acc, cur) => acc + cur);
 }
 
-function puzzleB(input) {
+function part2(input) {
   const results = input
     .map(line =>
       line
@@ -89,4 +89,4 @@ function puzzleB(input) {
   return results.reduce((acc, cur) => acc + cur);
 }
 
-runPuzzles(puzzleA, puzzleB, 2020, 18);
+runPuzzles(part1, part2, 2020, 18);

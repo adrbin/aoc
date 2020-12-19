@@ -1,7 +1,7 @@
 import { runPuzzles } from '../../utils.js';
 
-function puzzleA(input) {}
+function part1(input) {}
 
-function puzzleB(input) {}
+function part2(input) {}
 
-runPuzzles(puzzleA, puzzleB, 2020, 111);
+runPuzzles(part1, part2, 2020, 111);

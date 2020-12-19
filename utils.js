@@ -7,17 +7,15 @@ export async function readFile(path, separator) {
     .filter(x => x);
 }
 
-export async function runPuzzles(
-  puzzleA,
-  puzzleB,
-  year,
-  number,
-  separator = '\n'
-) {
+export async function runPuzzles(part1, part2, year, number, separator = '\n') {
   const inputFile = path.join(year.toString(), number.toString(), 'input.txt');
   const input = await readFile(inputFile, separator);
-  const puzzleAResult = puzzleA(input);
-  console.log(`puzzle A result: ${puzzleAResult}`);
-  const puzzleBResult = puzzleB(input);
-  console.log(`puzzle B result: ${puzzleBResult}`);
+  console.time('part 1');
+  const part1Result = part1(input);
+  console.timeEnd('part 1');
+  console.log(`part 1 result: ${part1Result}`);
+  console.time('part 2');
+  const part2Result = part2(input);
+  console.timeEnd('part 2');
+  console.log(`part 2 result: ${part2Result}`);
 }
