@@ -61,31 +61,11 @@ function part1(input) {
 
 function part2(input) {
   const allergensToIngredientsMap = new Map();
-  const ingredientsToAllergensMap = new Map();
-  const allIngredientsMap = new Map();
   const allAllergensMap = new Map();
   for (const line of input) {
     const match = line.match(/(.*) \(contains (.*)\)/);
     const ingredients = match[1].split(' ');
     const allergens = match[2].split(', ');
-    for (const ingredient of ingredients) {
-      let ingredientsCount = allIngredientsMap.get(ingredient);
-      if (!ingredientsCount) {
-        ingredientsCount = 0;
-      }
-      allIngredientsMap.set(ingredient, ingredientsCount + 1);
-
-      let allergensInIngredient = ingredientsToAllergensMap.get(ingredient);
-      if (!allergensInIngredient) {
-        ingredientsToAllergensMap.set(ingredient, new Set(allergens));
-      } else {
-        const intersected = intersection(
-          allergensInIngredient,
-          new Set(allergens),
-        );
-        ingredientsToAllergensMap.set(ingredient, intersected);
-      }
-    }
     for (const allergen of allergens) {
       let allergensCount = allAllergensMap.get(allergen);
       if (!allergensCount) {
