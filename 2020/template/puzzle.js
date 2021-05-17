@@ -4,4 +4,4 @@ function part1(input) {}
 
 function part2(input) {}
 
-runPuzzles(part1, part2, 2020, 111);
+runPuzzles(part1, part2, 2020, 11);
